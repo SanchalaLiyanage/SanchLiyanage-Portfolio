@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --radius: 0.5rem;
+  }
+
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+    font-size: 15px; /* Reduced base font size */
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  @media print {
+    body {
+      @apply bg-white text-black;
+      cursor: auto;
+      font-size: 11px; /* Even smaller font for print */
+    }
+
+    a,
+    button,
+    input,
+    textarea,
+    select,
+    [role="button"] {
+      cursor: auto;
+    }
+
+    .print\:hidden {
+      display: none !important;
+    }
+
+    .print\:block {
+      display: block !important;
+    }
+
+    .print\:text-black {
+      color: black !important;
+    }
+
+    .print\:text-gray-600 {
+      color: #4b5563 !important;
+    }
+
+    .print\:border-0 {
+      border: none !important;
+    }
+
+    .print\:shadow-none {
+      box-shadow: none !important;
+    }
+
+    .print\:p-0 {
+      padding: 0 !important;
+    }
+
+    .print\:m-0 {
+      margin: 0 !important;
+    }
+
+    .print\:py-0 {
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    .print\:transform-none {
+      transform: none !important;
+    }
+
+    .print\:opacity-100 {
+      opacity: 1 !important;
+    }
+  }
+}
+
+@layer utilities {
+  .font-playfair {
+    font-family: var(--font-playfair);
+  }
+
+  .font-heading {
+    font-family: var(--font-playfair);
+  }
+
+  .font-sans {
+    font-family: var(--font-inter);
+  }
+
+  .animate-spin-slow {
+    animation: spin 15s linear infinite;
+  }
+
+  .animate-reverse-spin {
+    animation: reverse-spin 20s linear infinite;
+  }
+
+  .perspective {
+    perspective: 1000px;
+  }
+
+  .bg-grid-white {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  }
+
+  .glow-sm {
+    box-shadow: 0 0 15px 2px rgba(100, 100, 100, 0.2);
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes reverse-spin {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.bg-gradient-radial {
+  background-image: radial-gradient(var(--tw-gradient-stops));
+}
+
